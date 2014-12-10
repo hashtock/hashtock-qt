@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>components/Menu.qml</file>
+        <file>components/fonts/fontawesome-webfont.ttf</file>
+        <file>components/fontawesome.js</file>
+        <file>components/MenuButton.qml</file>
+        <file>components/TagInList.qml</file>
+        <file>static/profile_placeholder.png</file>
+        <file>components/OrderInList.qml</file>
+    </qresource>
+</RCC>
