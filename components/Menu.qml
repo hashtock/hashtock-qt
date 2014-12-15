@@ -1,6 +1,5 @@
 import QtQuick 2.0
 import QtQuick.Layouts 1.1
-import QtPositioning 5.3
 import QtQuick.Controls 1.2
 import QtQuick.Window 2.1
 import QtQuick.Controls.Styles 1.2
@@ -33,6 +32,7 @@ Rectangle {
         MenuButton {
             text: FontAwesome.Icon.History
             onClicked: historyClicked()
+            visible: false
         }
 
         MenuButton {

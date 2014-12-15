@@ -77,6 +77,7 @@ StateMaster::StateMaster(QObject *parent) :
     }
 
     machine.setInitialState(getState("splashState"));
+//    machine.setInitialState(getState("userState"));
     machine.start();
 }
 

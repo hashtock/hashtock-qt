@@ -1,11 +1,12 @@
 import QtQuick 2.3
 import QtQuick.Controls 1.2
-import QtWebKit 3.0
+//import QtWebKit 3.0
 import QtQuick.Layouts 1.1
 import "components" 1.0 as Components
 import Api 1.0
 import AppStates 1.0
 import Utils 1.0
+import "platform" 1.0 as Platform
 
 Item {
     id: app
@@ -96,17 +97,23 @@ Item {
         }
     }
 
-    WebView {
+    Platform.LoginView {
         id: loginView
         anchors.fill: parent
         visible: false
-
-        onLoadingChanged: {
-            if (loading == false && loadRequest.url == currentUser.loginUrl) {
-                StateMaster.consumeEvent(StateEvents.LoginCompleted)
-            }
-        }
     }
+
+//    WebView {
+//        id: loginView
+//        anchors.fill: parent
+//        visible: false
+
+//        onLoadingChanged: {
+//            if (loading == false && loadRequest.url == currentUser.loginUrl) {
+//                StateMaster.consumeEvent(StateEvents.LoginCompleted)
+//            }
+//        }
+//    }
 
     ColumnLayout {
         id: loggedInView

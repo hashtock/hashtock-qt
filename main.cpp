@@ -10,6 +10,8 @@
 #include "hashtockapi.h"
 #include "qmlmessenger.h"
 
+//void include_qml_paths(QQu)
+
 int main(int argc, char **argv)
 {
     QGuiApplication app(argc, argv);

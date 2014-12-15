@@ -6,9 +6,7 @@
 
 class QMLNetFactory : public QQmlNetworkAccessManagerFactory
 {
-//    Q_OBJECT
 public:
-//    explicit QMLNetFactory(QObject *parent = 0);
     virtual QNetworkAccessManager *create(QObject *parent);
 
 };

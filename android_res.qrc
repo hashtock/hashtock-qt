@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>platform_qml/android/platform/LoginView.qml</file>
+    </qresource>
+</RCC>

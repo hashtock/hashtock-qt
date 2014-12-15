@@ -10,6 +10,9 @@
 #include <QQmlContext>
 #include <QQmlEngine>
 
+#include <QAndroidJniObject>
+#include <QAndroidJniEnvironment>
+
 User::User(QQuickItem *parent) :
     QQuickItem(parent), m_name(""), m_founds(0), m_loggedin(false), m_uptodate(false)
 {
@@ -87,11 +90,30 @@ void User::setName(QString &name)
 
 void User::loadData()
 {
+//    qDebug() << "Call Java";
+//    QAndroidJniObject accounts = QAndroidJniObject::callStaticObjectMethod("org/hashtock/auth/AccountList", "get_list", "()[Ljava/lang/String;");
+//    jobjectArray accountsArray = accounts.object<jobjectArray>();
+//    QAndroidJniEnvironment env;
+
+//    QList<QString> accountNames;
+
+//    for (int i = 0; i < env->GetArrayLength(accountsArray); ++i) {
+//        jobject accObj = env->GetObjectArrayElement(accountsArray, i);
+//        QString accountName = QAndroidJniObject(accObj).toString();
+//        accountNames.append(accountName);
+//    }
+
+//    QString account = accountNames[0];
+
+//    qDebug() << "Call Java 2";
+//    QAndroidJniObject::callStaticObjectMethod("org/hashtock/auth/AccountList", "get_auth_key", "()Ljava/lang/String;");
+//    qDebug() << "Call Java 2 done";
+
     if (m_uptodate) {
         return;
     }
 
-    qWarning() << "LOAD DATA";
+    qWarning() << "LOAD USER DATA";
     m_nam = qmlEngine(this)->networkAccessManager();
 
     if(!m_nam) {
@@ -110,8 +132,10 @@ void User::dataReady()
 {
     QNetworkReply *resp = qobject_cast<QNetworkReply *>(sender());
     int status_code = resp->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
+    qDebug() << "Status:" << status_code;
     if (status_code / 100 == 3)
     {
+        qDebug() << "Login required";
         emit loginRequired();
         return;
     }

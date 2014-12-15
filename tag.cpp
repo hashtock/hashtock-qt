@@ -11,7 +11,7 @@ TagModel::TagModel(QObject *parent) :
 }
 
 void TagModel::loadData()
-{
+{   
     m_api->loadData();
 }
 
